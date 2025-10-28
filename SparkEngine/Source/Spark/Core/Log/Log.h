@@ -22,7 +22,8 @@ namespace Spark
         virtual void Rotate() = 0;
     };
 
-    class ConsoleOutput : public LogOutput {
+    class ConsoleOutput : public LogOutput
+    {
     public:
         void Write(const std::string& message) override
         {
@@ -33,7 +34,8 @@ namespace Spark
     };
 
     // 日志轮转和大小限制的文件输出
-    class FileOutput : public LogOutput {
+    class FileOutput : public LogOutput
+    {
     public:
         FileOutput(const std::string& filename, size_t maxSize = 10 * 1024 * 1024)
             : filename(filename), maxSize(maxSize), file(filename, std::ios::app)
@@ -65,7 +67,10 @@ namespace Spark
         {
             // 重命名当前文件
             std::string rotatedName = filename + "." + std::to_string(std::time(nullptr));
-            std::rename(filename.c_str(), rotatedName.c_str());
+            if (!std::rename(filename.c_str(), rotatedName.c_str()))
+            {
+                throw std::runtime_error("Failed to rename log file: " + filename);
+            }
 
             // 重新打开新文件
             file.close();
