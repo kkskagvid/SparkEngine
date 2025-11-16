@@ -1,7 +1,7 @@
 #include "SparkPCH.h"
 
 #include "Spark/Core/Window.h"
-#include "Spark/Core/String/String.h"
+#include "Spark/Core/String/StringUtils.h"
 
 #include "Spark/Platforms/Windows/WindowsWindow.h"
 

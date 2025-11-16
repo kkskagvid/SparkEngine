@@ -3,7 +3,7 @@
 #include <Shellapi.h>
 
 #include <Spark/Core/Launch.h>
-#include <spark/Core/String/String.h>
+#include <spark/Core/String/StringUtils.h>
 
 // http://developer.download.nvidia.com/devzone/devcenter/gamegraphics/files/OptimusRenderingPolicies.pdf
 // The following line is to favor the high performance NVIDIA GPU if there are multiple GPUs

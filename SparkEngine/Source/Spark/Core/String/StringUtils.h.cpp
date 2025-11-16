@@ -4,7 +4,7 @@
 #include <unicode/putil.h>
 #include <unicode/ucnv.h>
 
-#include "Spark/Core/String/StringUtils.h.h"
+#include "Spark/Core/String/StringUtils.h"
 
 namespace Spark
 {
