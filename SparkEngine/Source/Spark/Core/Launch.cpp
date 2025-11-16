@@ -3,6 +3,7 @@
 #include "Spark/Core/ThreadPool.h"
 #include "Spark/Core/Event/EventCategory.h"
 #include "Spark/Core/Event/Event.h"
+#include "Spark/Core/Log/Log.h"
 
 #include "Spark/Core/Launch.h"
 
@@ -16,7 +17,10 @@ void TryAttachDebuggerWindowInWindows()
     {
         std::cout << "Failed to allocate console" << std::endl;
     }
+}
 
+void RedirectStdOutputToConsole()
+{
     FILE* unused;
     if (freopen_s(&unused, "CONOUT$", "w", stdout))
     {
@@ -31,6 +35,9 @@ void TryAttachDebuggerWindowInWindows()
 LAUNCH_API int EngineMain(char** argv)
 {
     TryAttachDebuggerWindowInWindows();
+    RedirectStdOutputToConsole();
+
+    
 
     while (true);
 
