@@ -26,7 +26,7 @@
     <ClCompile Include="Source\Spark\Core\Event\Event.cpp" />
     <ClCompile Include="Source\Spark\Core\Launch.cpp" />
     <ClCompile Include="Source\Spark\Core\Log\Log.cpp" />
-    <ClCompile Include="Source\Spark\Core\String\String.cpp" />
+    <ClCompile Include="Source\Spark\Core\String\StringUtils.h.cpp" />
     <ClCompile Include="Source\Spark\Core\ThreadPool.cpp" />
     <ClCompile Include="Source\Spark\Platforms\Windows\WindowsWindow.cpp" />
   </ItemGroup>
@@ -36,7 +36,7 @@
     <ClInclude Include="Source\Spark\Core\Event\EventCategory.h" />
     <ClInclude Include="Source\Spark\Core\Launch.h" />
     <ClInclude Include="Source\Spark\Core\Log\Log.h" />
-    <ClInclude Include="Source\Spark\Core\String\String.h" />
+    <ClInclude Include="Source\Spark\Core\String\StringUtils.h" />
     <ClInclude Include="Source\Spark\Core\ThreadPool.h" />
     <ClInclude Include="Source\Spark\Core\Window.h" />
     <ClInclude Include="Source\Spark\Platforms\Windows\WindowsWindow.h" />

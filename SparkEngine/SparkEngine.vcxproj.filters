@@ -21,7 +21,7 @@
     <ClCompile Include="Source\SparkPCH.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Spark\Core\String\String.cpp">
+    <ClCompile Include="Source\Spark\Core\String\StringUtils.h.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Source\Spark\Platforms\Windows\WindowsWindow.cpp">
@@ -44,7 +44,7 @@
     <ClInclude Include="Source\SparkPCH.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Spark\Core\String\String.h">
+    <ClInclude Include="Source\Spark\Core\String\StringUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Source\Spark\Core\Window.h">
