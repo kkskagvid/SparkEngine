@@ -31,8 +31,9 @@ namespace Spark
     class Logger
     {
     public:
+        static Logger& GetLogger(const char* name);
 
-        // [TAG] [xxxx-xx-xx xx:xx:xx] [level] [filename:line] message
+        // [xxxx-xx-xx xx:xx:xx] [level] [TAG] [filename:line] message
         template<typename... Args>
         void SyncLogger(LogLevel level, const char* filename, const char* format, Args&&... args);
 
@@ -49,6 +50,10 @@ namespace Spark
         void RemoveAllFilter();
 
     private:
+        Logger(const char* name);
+        ~Logger() = default;
+
+        std::string m_Name;
         LogLevel m_CurrentLevel = LogLevel::Info;
         std::vector<LogFilter*> m_Filters;
         std::vector<LoggerStreamHandler*> m_Handlers;
