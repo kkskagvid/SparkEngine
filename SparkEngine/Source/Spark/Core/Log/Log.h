@@ -1,5 +1,9 @@
 #pragma once
 
+#include <fmt/core.h>
+#include <fmt/format.h>
+#include <fmt/os.h>
+
 namespace Spark
 {
     enum class LogLevel
@@ -31,14 +35,40 @@ namespace Spark
     class Logger
     {
     public:
+        static Logger& GetLogger();
         static Logger& GetLogger(const char* name);
 
         // [xxxx-xx-xx xx:xx:xx] [level] [TAG] [filename:line] message
         template<typename... Args>
-        void SyncLogger(LogLevel level, const char* filename, const char* format, Args&&... args);
+        void SyncLogger(LogLevel level, const char* filename, const char* format, Args&&... args)
+        {
+            std::lock_guard<std::mutex> lock(mtx);
+            std::string message = fmt::format(format, std::forward<Args>(args)...);
+
+            if (!m_Filters.empty())
+            {
+                for (const auto& filter : m_Filters)
+                {
+                    if (!filter->Filter(message))
+                    {
+                        return;
+                    }
+                }
+            }
+
+            int handlersSize = m_Handlers.size();
+            while (handlersSize < 0)
+            {
+                m_Handlers[handlersSize]->Write(message);
+            }
+        }
+
 
         template<typename... Args>
-        void AsyncLogger(LogLevel level, const char* filename, const char* format, Args&&... args);
+        void AsyncLogger(LogLevel level, const char* filename, const char* format, Args&&... args)
+        {
+
+        }
 
         void SetLevel(LogLevel level);
         void AddStreamHandler(LoggerStreamHandler* handler);
@@ -50,6 +80,7 @@ namespace Spark
         void RemoveAllFilter();
 
     private:
+        Logger();
         Logger(const char* name);
         ~Logger() = default;
 
@@ -57,5 +88,6 @@ namespace Spark
         LogLevel m_CurrentLevel = LogLevel::Info;
         std::vector<LogFilter*> m_Filters;
         std::vector<LoggerStreamHandler*> m_Handlers;
+        std::mutex mtx;
     };
 }

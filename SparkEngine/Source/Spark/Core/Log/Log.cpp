@@ -4,14 +4,10 @@
 
 namespace Spark
 {
-    template<typename ...Args>
-    void Logger::SyncLogger(LogLevel level, const char* filename, const char* format, Args && ...args)
+    Logger& Logger::GetLogger()
     {
-    }
-
-    template<typename ...Args>
-    void Logger::AsyncLogger(LogLevel level, const char* filename, const char* format, Args && ...args)
-    {
+        static Logger logger;
+        return logger;
     }
 
     Logger& Logger::GetLogger(const char* name)
@@ -53,6 +49,11 @@ namespace Spark
     void Logger::RemoveAllFilter()
     {
         this->m_Filters.clear();
+    }
+
+    Logger::Logger()
+    {
+
     }
 
     Logger::Logger(const char* name)

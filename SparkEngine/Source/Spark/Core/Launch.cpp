@@ -32,12 +32,20 @@ void RedirectStdOutputToConsole()
     }
 }
 
+void TestLogger()
+{
+    Spark::Logger& logger = Spark::Logger::GetLogger("Test");
+    logger.SyncLogger(Spark::LogLevel::Info, __FILE__, "This is a test log: {}", 123);
+    logger.SyncLogger(Spark::LogLevel::Debug, __FILE__, "Debug log: {}", 456);
+    logger.SyncLogger(Spark::LogLevel::Error, __FILE__, "Error log: {}", "An error occurred");
+}
+
 LAUNCH_API int EngineMain(char** argv)
 {
     TryAttachDebuggerWindowInWindows();
     RedirectStdOutputToConsole();
 
-    
+    TestLogger();
 
     while (true);
 

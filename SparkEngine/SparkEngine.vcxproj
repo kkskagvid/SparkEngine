@@ -25,6 +25,8 @@
     </ClCompile>
     <ClCompile Include="Source\Spark\Core\Event\Event.cpp" />
     <ClCompile Include="Source\Spark\Core\Launch.cpp" />
+    <ClCompile Include="Source\Spark\Core\Log\ConsoleLoggerStreamHandler.cpp" />
+    <ClCompile Include="Source\Spark\Core\Log\ConsoleStreamHandler.cpp" />
     <ClCompile Include="Source\Spark\Core\Log\Log.cpp" />
     <ClCompile Include="Source\Spark\Core\String\StringUtils.h.cpp" />
     <ClCompile Include="Source\Spark\Core\ThreadPool.cpp" />
@@ -35,6 +37,8 @@
     <ClInclude Include="Source\Spark\Core\Event\Event.h" />
     <ClInclude Include="Source\Spark\Core\Event\EventCategory.h" />
     <ClInclude Include="Source\Spark\Core\Launch.h" />
+    <ClInclude Include="Source\Spark\Core\Log\ConsoleLoggerStreamHandler.h" />
+    <ClInclude Include="Source\Spark\Core\Log\ConsoleStreamHandler.h" />
     <ClInclude Include="Source\Spark\Core\Log\Log.h" />
     <ClInclude Include="Source\Spark\Core\String\StringUtils.h" />
     <ClInclude Include="Source\Spark\Core\ThreadPool.h" />
