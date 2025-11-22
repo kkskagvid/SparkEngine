@@ -1,12 +1,11 @@
 #include "SparkPCH.h"
 
 #include "Spark/Core/ThreadPool.h"
-#include "Spark/Core/Launch.h"
 #include "Spark/Core/Event/EventCategory.h"
 
 #include "Spark/Core/Event/Event.h"
 
-namespace Spark
+namespace Spark::Core::Event
 {
     // 在类外初始化静态成员
     std::unordered_map<EventCategory, std::vector<std::string>> EventBus::category_to_event_names_;

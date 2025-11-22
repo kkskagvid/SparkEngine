@@ -21,7 +21,7 @@
     <ClCompile Include="Source\SparkPCH.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Spark\Core\String\StringUtils.h.cpp">
+    <ClCompile Include="Source\Spark\Core\String\StringUtils.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Source\Spark\Platforms\Windows\WindowsWindow.cpp">
@@ -34,9 +34,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Source\Spark\Core\ThreadPool.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Spark\Core\Log\ConsoleStreamHandler.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Source\Spark\Core\Log\ConsoleLoggerStreamHandler.cpp">

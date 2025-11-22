@@ -19,12 +19,12 @@ int LaunchWindowsStartup()
     int args;
     LPWSTR cmdStr = ::GetCommandLineW();
     LPWSTR* argvStr = CommandLineToArgvW(cmdStr, &args);
-    char** argv = Spark::ConvertWStringArgsToCharArray(argvStr);
+    char** argv = Spark::Core::ConvertWStringArgsToCharArray(argvStr);
 
     int errorCode = EngineMain(argv);
 
     HeapFree(GetProcessHeap(), 0, argvStr);
-    Spark::FreeCharArray(argv);
+    Spark::Core::FreeCharArray(argv);
 
     return errorCode;
 }

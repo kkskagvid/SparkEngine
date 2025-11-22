@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Spark
+namespace Spark::Core
 {
     class WindowsWindow : IWindow
     {

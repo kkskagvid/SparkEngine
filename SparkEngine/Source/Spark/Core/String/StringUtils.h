@@ -2,9 +2,10 @@
 #pragma warning(disable : 4996)
 
 #include "SparkPCH.h"
+
 #include "Spark/Core/Launch.h"
 
-namespace Spark
+namespace Spark::Core
 {
     /**
      * @brief

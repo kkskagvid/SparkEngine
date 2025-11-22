@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Spark
+namespace Spark::Core::Event
 {
     enum class EventCategory {
         EC_None = 0,

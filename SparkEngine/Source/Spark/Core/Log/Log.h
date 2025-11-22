@@ -1,10 +1,12 @@
 #pragma once
+#pragma warning(disable : 4996)
 
 #include <fmt/core.h>
 #include <fmt/format.h>
+#include <fmt/chrono.h>
 #include <fmt/os.h>
 
-namespace Spark
+namespace Spark::Core
 {
     enum class LogLevel
     {
@@ -40,10 +42,15 @@ namespace Spark
 
         // [xxxx-xx-xx xx:xx:xx] [level] [TAG] [filename:line] message
         template<typename... Args>
-        void SyncLogger(LogLevel level, const char* filename, const char* format, Args&&... args)
+        void SyncLogger(LogLevel level, const char* filename, int line, const char* format, Args&&... args)
         {
             std::lock_guard<std::mutex> lock(mtx);
-            std::string message = fmt::format(format, std::forward<Args>(args)...);
+
+            std::string_view levelStr = LogLevelToString(level);
+            std::string time = fmt::format("{:%Y-%m-%d %H:%M:%S}", fmt::localtime(std::time(nullptr)));
+            std::string formatMessage = fmt::format(format, std::forward<Args>(args)...);
+
+            std::string message = fmt::format("[{}] [{}] [{}] [{}:{}] {}", time, levelStr, this->m_Name, filename, line, formatMessage);
 
             if (!m_Filters.empty())
             {
@@ -82,6 +89,8 @@ namespace Spark
         Logger();
         Logger(const char* name);
         ~Logger() = default;
+
+        std::string_view LogLevelToString(LogLevel level);
 
         std::string m_Name;
         LogLevel m_CurrentLevel = LogLevel::Info;

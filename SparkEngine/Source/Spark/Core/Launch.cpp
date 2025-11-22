@@ -1,10 +1,8 @@
 #include "SparkPCH.h"
 
 #include "Spark/Core/ThreadPool.h"
-
 #include "Spark/Core/Event/EventCategory.h"
 #include "Spark/Core/Event/Event.h"
-
 #include "Spark/Core/Log/Log.h"
 #include "Spark/Core/Log/ConsoleLoggerStreamHandler.h"
 
@@ -37,14 +35,14 @@ void RedirectStdOutputToConsole()
 
 void TestLogger()
 {
-    Spark::Logger& logger = Spark::Logger::GetLogger("Test");
+    Spark::Core::Logger& logger = Spark::Core::Logger::GetLogger("Test");
 
-    Spark::ConsoleLoggerStreamHandler* clsh = new Spark::ConsoleLoggerStreamHandler();
-    logger.AddStreamHandler(clsh);
+    std::shared_ptr<Spark::Core::ConsoleLoggerStreamHandler> clsh = std::make_shared<Spark::Core::ConsoleLoggerStreamHandler>();
+    logger.AddStreamHandler(clsh.get());
 
-    logger.SyncLogger(Spark::LogLevel::Info, __FILE__, "This is a test log: {}", 123);
-    logger.SyncLogger(Spark::LogLevel::Debug, __FILE__, "Debug log: {}", 456);
-    logger.SyncLogger(Spark::LogLevel::Error, __FILE__, "Error log: {}", "An error occurred");
+    logger.SyncLogger(Spark::Core::LogLevel::Info, __FILE__, __LINE__, "This is a test log: {}", 123);
+    logger.SyncLogger(Spark::Core::LogLevel::Debug, __FILE__, __LINE__, "Debug log: {}", 456);
+    logger.SyncLogger(Spark::Core::LogLevel::Error, __FILE__, __LINE__, "Error log: {}", "An error occurred");
 }
 
 LAUNCH_API int EngineMain(char** argv)

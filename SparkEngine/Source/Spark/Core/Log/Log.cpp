@@ -2,7 +2,10 @@
 
 #include "Spark/Core/Log/Log.h"
 
-namespace Spark
+#define LOG_LEVEL_CASE(level) \
+    case LogLevel::level: return #level;
+
+namespace Spark::Core
 {
     Logger& Logger::GetLogger()
     {
@@ -59,5 +62,21 @@ namespace Spark
     Logger::Logger(const char* name)
     {
         this->m_Name = name;
+    }
+
+    std::string_view Logger::LogLevelToString(LogLevel level)
+    {
+        switch (level)
+        {
+            LOG_LEVEL_CASE(None)
+            LOG_LEVEL_CASE(Trace)
+            LOG_LEVEL_CASE(Debug)
+            LOG_LEVEL_CASE(Info)
+            LOG_LEVEL_CASE(Warn)
+            LOG_LEVEL_CASE(Error)
+            LOG_LEVEL_CASE(Fatal)
+        default:
+            return "UNKOWN";
+        }
     }
 }

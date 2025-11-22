@@ -64,7 +64,7 @@
     #include <exception>
 
     #include <type_traits>
-    #include <typeinfo>
+    #include <typeinfo>14
     #include <any>
     #include <optional>
     #include <variant>

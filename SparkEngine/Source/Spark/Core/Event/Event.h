@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Spark
+namespace Spark::Core::Event
 {
     // 事件基类
     class Event

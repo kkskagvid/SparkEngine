@@ -1,7 +1,7 @@
 #pragma once
 #undef max
 
-namespace Spark
+namespace Spark::Core
 {
     class ThreadPool {
     public:

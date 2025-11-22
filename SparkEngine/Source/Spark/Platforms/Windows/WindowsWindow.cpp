@@ -5,7 +5,7 @@
 
 #include "Spark/Platforms/Windows/WindowsWindow.h"
 
-namespace Spark
+namespace Spark::Core
 {
     WindowProperties WindowsWindow::GetProperties() const
     {
@@ -22,7 +22,7 @@ namespace Spark
         className += properties.title;
         className += " Window Class";
 
-        std::wstring wTitle = ConvertCStringToWString(properties.title.c_str());
+        std::wstring wTitle = Spark::Core::ConvertCStringToWString(properties.title.c_str());
         std::wstring wClassName = ConvertCStringToWString(className.c_str());
 
         RECT windowRect = {};

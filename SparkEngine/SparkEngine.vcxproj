@@ -27,7 +27,7 @@
     <ClCompile Include="Source\Spark\Core\Launch.cpp" />
     <ClCompile Include="Source\Spark\Core\Log\ConsoleLoggerStreamHandler.cpp" />
     <ClCompile Include="Source\Spark\Core\Log\Log.cpp" />
-    <ClCompile Include="Source\Spark\Core\String\StringUtils.h.cpp" />
+    <ClCompile Include="Source\Spark\Core\String\StringUtils.cpp" />
     <ClCompile Include="Source\Spark\Core\ThreadPool.cpp" />
     <ClCompile Include="Source\Spark\Platforms\Windows\WindowsWindow.cpp" />
   </ItemGroup>

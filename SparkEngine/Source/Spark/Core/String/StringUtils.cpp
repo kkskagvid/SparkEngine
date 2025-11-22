@@ -1,12 +1,12 @@
 #include "SparkPCH.h"
 
-#include <unicode/unistr.h>
 #include <unicode/putil.h>
+#include <unicode/unistr.h>
 #include <unicode/ucnv.h>
 
 #include "Spark/Core/String/StringUtils.h"
 
-namespace Spark
+namespace Spark::Core
 {
     std::wstring ConvertCStringToWString(const char* mbStr, const char* codePage)
     {
