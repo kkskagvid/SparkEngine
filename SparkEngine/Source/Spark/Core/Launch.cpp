@@ -8,7 +8,6 @@
 #include "Spark/Core/Log/Log.h"
 #include "Spark/Core/Log/ConsoleLoggerStreamHandler.h"
 
-
 #include "Spark/Core/Launch.h"
 
 void TryAttachDebuggerWindowInWindows()

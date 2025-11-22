@@ -71,10 +71,10 @@
     <ClInclude Include="Source\Spark\Core\ThreadPool.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Spark\Core\Log\ConsoleStreamHandler.h">
+    <ClInclude Include="Source\Spark\Core\Log\ConsoleLoggerStreamHandler.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Spark\Core\Log\ConsoleLoggerStreamHandler.h">
+    <ClInclude Include="Source\Spark\Core\Log\ConsoleStreamHandler.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
