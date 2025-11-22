@@ -39,7 +39,7 @@ void TestLogger()
 {
     Spark::Logger& logger = Spark::Logger::GetLogger("Test");
 
-    Spark::ConsoleLoggerStreamHandler* clsh = {};
+    Spark::ConsoleLoggerStreamHandler* clsh = new Spark::ConsoleLoggerStreamHandler();
     logger.AddStreamHandler(clsh);
 
     logger.SyncLogger(Spark::LogLevel::Info, __FILE__, "This is a test log: {}", 123);

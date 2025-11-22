@@ -56,10 +56,9 @@ namespace Spark
                 }
             }
 
-            int handlersSize = m_Handlers.size();
-            while (handlersSize < 0)
+            for (auto handler : m_Handlers)
             {
-                m_Handlers[handlersSize]->Write(message);
+                handler->Write(message);
             }
         }
 
@@ -86,8 +85,8 @@ namespace Spark
 
         std::string m_Name;
         LogLevel m_CurrentLevel = LogLevel::Info;
-        std::vector<LogFilter*> m_Filters;
-        std::vector<LoggerStreamHandler*> m_Handlers;
+        std::vector<LogFilter*> m_Filters = {};
+        std::vector<LoggerStreamHandler*> m_Handlers = {};
         std::mutex mtx;
     };
 }
