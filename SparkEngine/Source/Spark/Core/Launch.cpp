@@ -1,9 +1,13 @@
 #include "SparkPCH.h"
 
 #include "Spark/Core/ThreadPool.h"
+
 #include "Spark/Core/Event/EventCategory.h"
 #include "Spark/Core/Event/Event.h"
+
 #include "Spark/Core/Log/Log.h"
+#include "Spark/Core/Log/ConsoleLoggerStreamHandler.h"
+
 
 #include "Spark/Core/Launch.h"
 
@@ -35,6 +39,10 @@ void RedirectStdOutputToConsole()
 void TestLogger()
 {
     Spark::Logger& logger = Spark::Logger::GetLogger("Test");
+
+    Spark::ConsoleLoggerStreamHandler* clsh;
+    logger.AddStreamHandler(clsh);
+
     logger.SyncLogger(Spark::LogLevel::Info, __FILE__, "This is a test log: {}", 123);
     logger.SyncLogger(Spark::LogLevel::Debug, __FILE__, "Debug log: {}", 456);
     logger.SyncLogger(Spark::LogLevel::Error, __FILE__, "Error log: {}", "An error occurred");
